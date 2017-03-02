@@ -35,6 +35,7 @@ def about(request):
 
 def buyticket(request):
     """Renders the about page."""
+    error_message = ""
     if request.method == "POST":
         ticket_form = Ticket_Form(request.POST)
         if ticket_form.is_valid():
@@ -42,7 +43,10 @@ def buyticket(request):
             post_ticket_form.fees = post_ticket_form.adult*150 + post_ticket_form.child*5
             post_ticket_form.save()
             return HttpResponseRedirect('/')
+        else:
+            error_message = "Please Enter Correct Details"
     else:
+
         ticket_form = Ticket_Form()
 
     return render(
@@ -51,7 +55,9 @@ def buyticket(request):
         {
             'title':'BuyTicket',
             'year':datetime.now().year,
-            'ticket_form' : ticket_form}
+            'ticket_form' : ticket_form,
+            'error_message':error_message,
+        }
     )
 
 def feedback(request):

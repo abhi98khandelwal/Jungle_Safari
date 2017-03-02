@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 {% load staticfiles%}
+    <br><br><br>
     <section id="contact">
         <div class="container">
             <div class="box last">
@@ -12,41 +13,43 @@
                         <p><strong>Timing-</strong></p>
                         <p>10:00 AM - 17:30 PM</p>
                         <div class="status alert alert-success" style="display: none"></div>
-                        <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php" role="form">
+                        {{ error_message }}
+                        <form id="main-contact-form" class="contact-form" name="ticket_form" method="post" role="form">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" required="required" placeholder="Name">
+                                        <input type="text" class="form-control" name = "name" required="required" placeholder="Name">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" required="required" placeholder="Contact No.">
+                                        <input type="text" class="form-control" name = "mobile" required="required" placeholder="Contact No.">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" required="required" placeholder="Email Address">
+                                        <input type="text" class="form-control" name = "email" required="required" placeholder="Email Address">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" required="required" placeholder="Date: dd/mm/yyyy" id="datepicker">
+                                        <input type="text" class="form-control" name = "date" required="required" placeholder="Date: mm/dd/yyyy" id="datepicker">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                     <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="text" onblur="findTotal()" name="qty" id="qty1" class="form-control" required="required"
+                                        <input type="text" onblur="findTotal()" name="adult" id="qty1" class="form-control" required="required"
                                                 placeholder="No. of Adults">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="text" onblur="findTotal()" name="qty" id="qty2" class="form-control" required="required"
+                                        <input type="text" onblur="findTotal()" name="child" id="qty2" class="form-control" required="required"
                                                
                                                placeholder="No. of Childrens" id="datepicker">
                                     </div>
@@ -63,7 +66,7 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                      <div class="form-group">
-                                        <button type="submit" class="btn btn-danger btn-lg">Pay Now!</button>
+                                        <input type="submit" class="btn btn-danger btn-lg" value = "Pay Now"> </input>
                                     </div>
                                 </div> </div>
                         </form>
