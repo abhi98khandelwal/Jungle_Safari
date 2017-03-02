@@ -1,52 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Jungle Safari</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/prettyPhoto.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-  body {
-      position: relative; 
-  }
-    </style>
-</head><!--/head-->
-
-<body data-spy="scroll" data-target="#navbar" data-offset="0">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#"><strong>Jungle Safari</strong></a>
-    </div>
-    <div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li><a href="home.html">Home</a></li>
-          <li  class="active"><a href="#">Book Tickets</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-           <ul class="nav navbar-nav navbar-right">
-                    <li><a href="https://www.google.co.in/maps/place/Jungle+Safari+Naya+Raipur/@21.0938988,81.7804808,13z/data=!4m5!3m4!1s0x0:0x3b2644d7c224a15a!8m2!3d21.0938988!4d81.7804808">Explore</a></li>
-                
-                </ul>
-      </div>
-    </div>
-  </div>
-</nav>
-    
+{% extends "layout.html" %}
+{% block content %}
+{% load staticfiles%}
     <section id="contact">
         <div class="container">
             <div class="box last">
@@ -115,35 +69,10 @@
                         </form>
                     </div><!--/.col-sm-6-->
                     <div class="col-sm-6">
-                        <img src="img/time.jpg" width="100%" >
+                        <img src="{% static "img/time.jpg" %}" width="100%" >
                     </div><!--/.col-sm-6-->
                 </div><!--/.row-->
             </div><!--/.box-->
         </div><!--/.container-->
     </section><!--/#contact-->
-
-    <footer id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    &copy; 2017 <a target="_blank" href="#" title="Jungle Safari">Jungle Safari</a>.
-                </div>
-            </div>
-        </div>
-    </footer><!--/#footer-->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Calculate Sum -->
-    <script type="text/javascript">
-function findTotal(){
-    var arr = document.getElementsByName('qty');
-    var tot=0;
-    for(var i=0;i<arr.length;i++){
-        if(parseInt(arr[i].value))
-            tot += parseInt(arr[i].value);
-    }
-    document.getElementById('total').value = tot;
-}
-
-    </script>
-</body>
-</html>
+{% endblock %}

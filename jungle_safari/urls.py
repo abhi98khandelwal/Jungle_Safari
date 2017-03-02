@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+import app.views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$',app.views.home,name = "home"),
+    url(r'^feedback',app.views.feedback, name = "feedback"),
+    url(r'^tickets$',app.views.buyticket, name="tickets"),
+    url(r'^layout$',app.views.about),
 ]
+
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+urlpatterns += staticfiles_urlpatterns()

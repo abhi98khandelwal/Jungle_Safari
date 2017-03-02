@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{{ title }}- Jungle Safari</title>
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/font-awesome.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/main.css" %}" rel="stylesheet">
+    <link href="{% static "css/camera.css" %}" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <style>
+  body {
+      position: relative; 
+  }
+    </style>
+</head><!--/head-->
+
+<body data-spy="scroll" data-target="#navbar" data-offset="0">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="{% url "home" %}"><strong>Jungle Safari</strong></a>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="{% url "home" %}">Home</a></li>
+          <li><a href="{% url "tickets" %}">Book Tickets</a></li>
+          <li><a href="{% url "feedback" %}">Feedback</a></li>
+        </ul>
+           <ul class="nav navbar-nav navbar-right">
+                    <li><a href="https://www.google.co.in/maps/place/Jungle+Safari+Naya+Raipur/@21.0938988,81.7804808,13z/data=!4m5!3m4!1s0x0:0x3b2644d7c224a15a!8m2!3d21.0938988!4d81.7804808">Explore</a></li>
+
+                </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+{% block content %}{% endblock %}
+<br>
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2017 <a target="_blank" href="#" title="Jungle Safari">Jungle Safari</a>.
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+ <script src="{% static "js/jquery.js" %}"></script>
+    <script src=' {% static "js/jquery.easing.1.3.js" %}'></script>
+    <script src='{% static "js/camera.min.js" %}'></script>
+    <script>
+    jQuery(function(){
+
+      jQuery('#camera_wrap_1').camera({
+        thumbnails: true
+      });
+    });
+  </script>
+{% block scripts %}{% endblock %}
+    </body>
+</html>

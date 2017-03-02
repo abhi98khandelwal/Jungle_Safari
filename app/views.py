@@ -13,23 +13,11 @@ def home(request):
     assert isinstance(request,HttpRequest)
     return render(
         request,
-        'templates/index.html',
+        'home.html',
         {
             'title':"Home Page",
             'year':datetime.now().year,
          }
-    )
-
-def tickets(request):
-    """Renders Tickets Page"""
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/tickets.html',
-        {
-            'title':"Book Tickets",
-            'year': datetime.now().year,
-        }
     )
 
 def about(request):
@@ -37,13 +25,14 @@ def about(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'app/about.html',
+        'layout.html',
         {
             'title':'About',
             'message':'Your application description page.',
             'year':datetime.now().year,
         }
     )
+
 def buyticket(request):
     """Renders the about page."""
     if request.method == "POST":
@@ -58,7 +47,7 @@ def buyticket(request):
 
     return render(
         request,
-        'app/buyticket.html',
+        'tickets.html',
         {
             'title':'BuyTicket',
             'year':datetime.now().year,
@@ -82,7 +71,7 @@ def feedback(request):
         feedback_form = Feedback_Form()
     return render(
         request,
-        'app/feedback.html',
+        'contact.html',
         {
             'title':'Feedback',
             'feedback_form' : feedback_form}
